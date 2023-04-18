@@ -11,7 +11,7 @@ function joinURL(baseURL, url){
 class Service {
 
     constructor(){
-        this.domain = "http://localhost:8000";
+        this.domain = "https://vnr-vjiet.onrender.com:8000";
     }
 
     request(url,method="POST",data=null){
