@@ -39,6 +39,11 @@ For better user experiance we used mdb-react-ui-kit for the new publications pag
 Here, we have added some publications data of the college into the database from the web application.
 The data used is the college publications data.
 
+## **MODULE-5: Help**
+
+The New Publication page features several parameters, which can sometimes be confusing for users. This module aims to clarify these parameters by providing users with a hands-on demonstration using sample entries, allowing for a more comprehensive understanding of how they work.
+
+
 # Steps to run the forked repository.
 >**_NOTE :_** Make sure your system have following installed before you run the project 
 > - VSCode latest version

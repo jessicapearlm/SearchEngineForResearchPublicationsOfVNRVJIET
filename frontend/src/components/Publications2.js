@@ -8,15 +8,15 @@ import Stack from "@mui/material/Stack";
 import Service from "../Service/http";
 import HomeNavbar from "./RNavbar";
 import { useNavigate } from "react-router-dom";
-import { CSVLink } from "react-csv";
-import { useDownloadExcel } from 'react-export-table-to-excel';
+// import { CSVLink } from "react-csv";
+// import { useDownloadExcel } from 'react-export-table-to-excel';
 import { Button } from "@mui/material";
 import { ExportCSV } from "./ExportCSV";
 import { MDBCol, MDBRow } from "mdb-react-ui-kit";
 import DatePicker from 'react-datepicker';
-import { Portal } from "react-overlays";
+// import { Portal } from "react-overlays";
 import Modal from 'react-bootstrap/Modal';
-import HelpModal from "./HelpModal";
+// import HelpModal from "./HelpModal";
 import { Center } from "@mantine/core";
 
 
@@ -27,9 +27,9 @@ function Publications2() {
 
     let [data, setData] = useState([]); /*Table data*/
     let [pageData, setPageData] = useState([]); /*Meta Data about pages*/
-    let [color, Setcolor] = useState('');
-    let [background, SetBackground] = useState("#81C784");
-    let [textColor, SetTextcolor] = useState("");
+    let color = '';// let [color, Setcolor] = useState('');
+    let background = '';// let [background, SetBackground] = useState("#81C784");
+    let textColor = '';// let [textColor, SetTextcolor] = useState("");
 
     /*Tells when the api need to be called*/
     let [getApi, setGetApi] = useState(0);
@@ -50,8 +50,8 @@ function Publications2() {
     let [endDate, setEndDate] = useState("")
 
     const [show, setShow] = useState(false)
-    let [jobs, setJobs] = useState(["ALL","C","J","B","BC"])
-    let [authors, setAuthors] = useState(["ALL", "Single", "First", "Second", "Third", "Fourth", "Fifth", "Others"])
+    let jobs = ["ALL","C","J","B","BC"]; // let [jobs, setJobs] = useState(["ALL","C","J","B","BC"])
+    let authors = ["ALL", "Single", "First", "Second", "Third", "Fourth", "Fifth", "Others"]; //let [authors, setAuthors] = useState(["ALL", "Single", "First", "Second", "Third", "Fourth", "Fifth", "Others"])
     // let [verdicts, setVerdict] = useState(['All',"ACCEPTED", "WRONG ANSWER","TIME LIMIT EXCEEDED","RUNTIME ERROR","PENDING","OTHER","COMPILATION ERROR"]);
     // let [languages, setLanguage] = useState(['All',"CPP", "C#", "JAVA", "JAVASCRIPT", "PYTHON"]);
 
@@ -79,8 +79,8 @@ function Publications2() {
     /*List for Filter Dropdown*/
     // let yesNo = ['All', 'Yes', 'No']
 
-    const formRef = useRef();
-    const DownloadData = [];
+    // const formRef = useRef();
+    // const DownloadData = [];
 
     // const onDownload = useDownloadExcel({
     //     currentTableRef: tableRef.current,
@@ -129,7 +129,7 @@ function Publications2() {
         service.get("api/data?title=" + publicationFilterValue + "&branch=" + branchFilterValue + "&username=" + publishedByFilterValue + "&cjb=" + (c_j_bFilterValue==="ALL"?"":c_j_bFilterValue) + "&year=" + yearFilterValue + "&nationality=" + nationalityFilterValue + "&scl=" + scopusFilterValue + "&author_no=" + (authorsFilterValue === "ALL" ? "" : authorsFilterValue) + "&page=" + pageNo + "&limit=" + perPage + "&startDate=" + startDate + "&endDate=" + endDate).then((json) => {
             console.log("JSON", json)
             setData(json.docs);
-            setPageData(json.limit == 0 ? 1 : json.pages)
+            setPageData(json.limit === 0 ? 1 : json.pages)
             // setEndDate("")
             // setEndMonth("")
             // setEndYear("")
@@ -146,7 +146,7 @@ function Publications2() {
 
             console.log(error);
         });
-    }, [getApi])
+    }, getApi)
 
     return (
 
@@ -175,7 +175,7 @@ function Publications2() {
                         />
                         <br />
                         <br /><br />
-                        <Button variant="contained" color="primary" onClick={() => { (startDate != "" && endDate != "") ? handleSearch() : setRequired(true) }}>
+                        <Button variant="contained" color="primary" onClick={() => { (startDate !== "" && endDate !== "") ? handleSearch() : setRequired(true) }}>
                             Search
                         </Button>
                     </Center>

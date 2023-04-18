@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { GoogleLogout } from 'react-google-login'; //import { GoogleLogin, GoogleLogout } from 'react-google-login';
 
 function HomeNavbar() {
     const clientId = 'client-ID';
@@ -27,6 +27,7 @@ function HomeNavbar() {
               width="50"
               height="40"
               className="d-inline-block align-top"
+              alt='VNR_LOGO'
             /></Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/home">Home</Nav.Link>

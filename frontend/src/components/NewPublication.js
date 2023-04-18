@@ -17,7 +17,7 @@ import InputLabel from '@mui/material/InputLabel';
 import { Button } from '@mui/material';
 import Service from '../Service/http';
 import HelpModal from './HelpModal';
-import DatePicker from 'react-datepicker';
+// import DatePicker from 'react-datepicker';
 
 function FirstData() {
     // const classes = useStyles();
@@ -26,7 +26,7 @@ function FirstData() {
     console.log("HERE", here)
     // const username = query.get('')
     const formRef = React.useRef();
-    const [date, setDate] = useState("")
+    // const [date, setDate] = useState("")
     const [year, setYear] = useState("")
     const [body, setBody] = useState({
         username: '',
@@ -63,7 +63,7 @@ function FirstData() {
     const [send, setSend] = useState(0)
     const [show, setShow] = useState(false)
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    // const handleShow = () => setShow(true);
     const navigate = useNavigate();
 
     const handleChangeCjb = (event) => {
@@ -280,7 +280,7 @@ function FirstData() {
     const handleChange = (e) => {
         console.log("EEEE", e)
         if (!e.target) {
-            setDate(e)
+            // setDate(e)
             // body.year = e.target.value
             setBody({
                 username: body.username,
@@ -735,7 +735,7 @@ function FirstData() {
             // body.year = e.target.value
             console.log("IN ELSE 1",e.target.value+"-"+(body.month===''?"01":body.month))
             console.log("IN ELSE", ""+e.target.value+"-"+body.month===''?"01":body.month+"-01")
-            setDate(e)
+            // setDate(e)
             setYear(e.target.value)
             setBody({
                 username: body.username,

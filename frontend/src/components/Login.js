@@ -16,7 +16,7 @@ from 'mdb-react-ui-kit';
 import { useNavigate } from "react-router-dom";
 function Login() {
     const navigate = useNavigate();
-     const [ profile, setProfile ] = useState(null);
+    //  const [ profile, setProfile ] = useState(null);
     const [ login, setLogin] = useState("")
     const [token, setToken] = useState(localStorage.getItem("token")||"")
     const clientId = '1006405223734-89bsslid5t5ivhaspa7qpgp12v17d7f8.apps.googleusercontent.com';
@@ -38,7 +38,7 @@ function Login() {
         console.log("res",res)
         if(res.profileObj.email.split('@')[1]==="vnrvjiet.in" && ('a'<=res.profileObj.email[0]<='z' || res.profileObj.email==="20071a05f0@vnrvjiet.in")){
             console.log("TRUE")
-            setProfile(res.profileObj);
+            // setProfile(res.profileObj);
             navigate("/home");
             setToken(res.accessToken)
             localStorage.setItem("token",res.accessToken)
@@ -50,7 +50,7 @@ function Login() {
             logOut();
 
         }
-        setProfile(res.profileObj);
+        // setProfile(res.profileObj);
     };
 
     const onFailure = (err) => {
