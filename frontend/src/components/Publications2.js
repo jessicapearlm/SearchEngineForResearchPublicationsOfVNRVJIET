@@ -1,5 +1,5 @@
 import ReactTable from "react-table-6";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react"; //import React, { useEffect, useState, useRef } from "react";
 import "react-table-6/react-table.css";
 import withFixedColumns from "react-table-hoc-fixed-columns";
 import "react-table-hoc-fixed-columns/lib/styles.css";
@@ -146,7 +146,7 @@ function Publications2() {
 
             console.log(error);
         });
-    }, getApi)
+    }, [authorsFilterValue, branchFilterValue, c_j_bFilterValue, endDate, getApi, nationalityFilterValue, navigate, pageNo, perPage, publicationFilterValue, publishedByFilterValue, scopusFilterValue, service, startDate, yearFilterValue])
 
     return (
 
