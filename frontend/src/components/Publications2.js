@@ -264,7 +264,7 @@ function Publications2() {
                             fixed: 'left'
                         },
                         {
-                            Header: () => (<div>Publication<br /><input type="text" id="publication" name="publication" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} onChange={(e) => { setPublicationFilterValue(e.target.value); }} /></div>),
+                            Header: () => (<div>Publication<br /><input type="text" id="publication" name="publication" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} value={publicationFilterValue} onChange={(e) => { setPublicationFilterValue(e.target.value); }} /></div>),
                             accessor: "title",
                             disableSortBy: true,
                             // Cell: e =>{e.original.title},
@@ -280,7 +280,7 @@ function Publications2() {
                             fixed: 'left'
                         },
                         {
-                            Header: () => (<div>Branch<br /><input size="sm" type="text" id="branch" name="branch" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} onChange={(e) => { setBranchFilterValue(e.target.value); }} /></div>),
+                            Header: () => (<div>Branch<br /><input size="sm" type="text" id="branch" name="branch" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} value={branchFilterValue} onChange={(e) => { setBranchFilterValue(e.target.value); }} /></div>),
                             accessor: "branch",
                             //Cell: e =>{e.original.title},
                             getProps: (state, rowInfo, column) => {
@@ -294,7 +294,7 @@ function Publications2() {
                             minWidth: 100
                         },
                         {
-                            Header: () => (<div>Authors<br /><input type="text" id="published_by" name="published_by" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} onChange={(e) => { setPublishedByFilterValue(e.target.value); }} /></div>),
+                            Header: () => (<div>Authors<br /><input type="text" id="published_by" name="published_by" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} value={publishedByFilterValue} onChange={(e) => { setPublishedByFilterValue(e.target.value); }} /></div>),
                             accessor: "username",
                             //Cell: e =>{e.original.username},
                             getProps: (state, rowInfo, column) => {
@@ -308,7 +308,7 @@ function Publications2() {
                             minWidth: 210
                         },
                         {
-                            Header: () => (<div>Publication Type<br /><select id="c_j_b" onChange={(e) => { setc_j_bFilterValue(e.target.value); setGetApi(getApi + 1); setPageNo(1) }} >{jobs.map(verdict => { return (<option value={verdict}> {verdict} </option>) })}</select></div>),
+                            Header: () => (<div>Publication Type<br /><select id="c_j_b" value={c_j_bFilterValue} onChange={(e) => { setc_j_bFilterValue(e.target.value); setGetApi(getApi + 1); setPageNo(1) }} >{jobs.map(verdict => { return (<option value={verdict}> {verdict} </option>) })}</select></div>),
                             accessor: "cjb",
                             //Cell: e => {e.original.cjb},
                             getProps: (state, rowInfo, column) => {
@@ -364,7 +364,7 @@ function Publications2() {
                             //minWidth: 140
                         },
                         {
-                            Header: () => (<div>Year<br /><input type="text" id="year" name="year" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} onChange={(e) => { setYearFilterValue(e.target.value); }} /></div>),
+                            Header: () => (<div>Year<br /><input type="text" id="year" name="year" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} value={yearFilterValue} onChange={(e) => { setYearFilterValue(e.target.value); }} /></div>),
                             accessor: "year",
                             Cell: e => <a>{fun(e.original.year)}</a>,
                             getProps: (state, rowInfo, column) => {
@@ -406,7 +406,7 @@ function Publications2() {
                             minWidth: 140
                         },
                         {
-                            Header: () => (<div>Inter/National<br /><input type="text" id="nationality" name="nationality" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} onChange={(e) => { setNationalityFilterValue(e.target.value); }} /></div>),
+                            Header: () => (<div>Inter/National<br /><input type="text" id="nationality" name="nationality" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} value={nationalityFilterValue} onChange={(e) => { setNationalityFilterValue(e.target.value); }} /></div>),
                             accessor: "nationality",
                             //Cell: e =>{e.original.nationality},
                             getProps: (state, rowInfo, column) => {
@@ -462,7 +462,7 @@ function Publications2() {
                             //minWidth: 420
                         },
                         {
-                            Header: () => (<div>SCI/Scopus/WoS/Others<br /><input type="text" id="problem" name="problem" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} onChange={(e) => { setScopusFilterValue(e.target.value); }} /></div>),
+                            Header: () => (<div>SCI/Scopus/WoS/Others<br /><input type="text" id="problem" name="problem" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} value={scopusFilterValue} onChange={(e) => { setScopusFilterValue(e.target.value); }} /></div>),
                             accessor: "scl",
                             //Cell: e =>{e.original.scl},
                             getProps: (state, rowInfo, column) => {
@@ -532,7 +532,7 @@ function Publications2() {
                             //minWidth: 140
                         },
                         {
-                            Header: () => (<div>Are you author?<br /><select id="author" onChange={(e) => { setAuthorsFilterValue(e.target.value); setGetApi(getApi + 1); setPageNo(1) }} >{authors.map(verdict => { return (<option value={verdict}> {verdict} </option>) })}</select></div>),
+                            Header: () => (<div>Are you author?<br /><select id="author" value={authorsFilterValue} onChange={(e) => { setAuthorsFilterValue(e.target.value); setGetApi(getApi + 1); setPageNo(1) }} >{authors.map(verdict => { return (<option value={verdict}> {verdict} </option>) })}</select></div>),
                             accessor: "author_no",
                             //Cell: e =>{e.original.author_no},
 
