@@ -364,7 +364,7 @@ function Publications2() {
                             //minWidth: 140
                         },
                         {
-                            Header: () => (<div>Year<br /><input type="text" id="year" name="year" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} value={yearFilterValue} onChange={(e) => { setYearFilterValue(e.target.value); }} /></div>),
+                            Header:"Year", //Header: () => (<div>Year<br /><input type="text" id="year" name="year" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} value={yearFilterValue} onChange={(e) => { setYearFilterValue(e.target.value); }} /></div>),
                             accessor: "year",
                             Cell: e => <a>{fun(e.original.year)}</a>,
                             getProps: (state, rowInfo, column) => {

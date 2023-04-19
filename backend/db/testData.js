@@ -13,7 +13,7 @@ var dataSchema = new mongoose.Schema({
     branch                            : { type: String, required: true, enum: ['CSE','IT','ECE','EEE','EIE','H&S','MECH','CE']},
     vol                               : { type: String, default: "null"},
     issue                             : { type: String, default: "null"},
-    year                              : { type: String},
+    year                              : { type: Date},
     month                             : { type: Number, default:"null"},
     doi                               : { type: String, required: true},
     nationality                       : { type: String, required: true},
