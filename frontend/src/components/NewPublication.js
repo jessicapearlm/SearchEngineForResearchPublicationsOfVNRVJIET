@@ -273,6 +273,7 @@ function FirstData() {
             console.log("JSON", json)
 
         }).catch((error) => {
+
             console.log(error);
         });
         // console.log("EVENT",body)
@@ -452,7 +453,7 @@ function FirstData() {
 
         else if (e.target.id === 'month') {
             // body.month = e.target.value
-            console.log("MONTH",(body.month.length===1?"0"+e.target.value:e.target.value))
+            console.log("MONTH", (body.month.length === 1 ? "0" + e.target.value : e.target.value))
             setBody({
                 username: body.username,
                 cjb: body.cjb,
@@ -466,8 +467,8 @@ function FirstData() {
                 name_cjb: body.name_cjb,
                 vol: body.vol,
                 issue: body.issue,
-                year: (1<=e.target.value && e.target.value<=12)?(year!==""?new Date(year+"-"+(e.target.value.length===1?"0"+e.target.value:(e.target.value.length===0?"01":e.target.value))+"-01").toLocaleDateString():body.year):body.year,
-                month: (1<=e.target.value && e.target.value<=12)?e.target.value:'',
+                year: (1 <= e.target.value && e.target.value <= 12) ? (year !== "" ? new Date(year + "-" + (e.target.value.length === 1 ? "0" + e.target.value : (e.target.value.length === 0 ? "01" : e.target.value)) + "-01").toLocaleDateString() : body.year) : body.year,
+                month: (1 <= e.target.value && e.target.value <= 12) ? e.target.value : '',
                 doi: body.doi,
                 organised_by: body.organised_by,
                 scl: body.scl,
@@ -732,9 +733,8 @@ function FirstData() {
             })
         }
         else {
-            // body.year = e.target.value
-            console.log("IN ELSE 1",e.target.value+"-"+(body.month===''?"01":body.month))
-            console.log("IN ELSE", ""+e.target.value+"-"+body.month===''?"01":body.month+"-01")
+            console.log("IN ELSE 1", e.target.value + "-" + (body.month === '' ? "01" : body.month))
+            console.log("IN ELSE", "" + e.target.value + "-" + body.month === '' ? "01" : body.month + "-01")
             // setDate(e)
             setYear(e.target.value)
             setBody({
@@ -750,7 +750,7 @@ function FirstData() {
                 name_cjb: body.name_cjb,
                 vol: body.vol,
                 issue: body.issue,
-                year: (2000<e.target.value && e.target.value<2100)?new Date(e.target.value+"-"+(body.month===''?"01":body.month)+"-01").toLocaleDateString():'',
+                year: (2000 < e.target.value && e.target.value < 2100) ? new Date(e.target.value + "-" + (body.month === '' ? "01" : body.month) + "-01").toLocaleDateString() : '',
                 month: body.month,
                 doi: body.doi,
                 organised_by: body.organised_by,
@@ -935,7 +935,7 @@ function FirstData() {
                                             </MDBCol>
 
 
-                                            <MDBCol md='6' className='p-5' style={{backgroundColor:"#E5BA73"}}>
+                                            <MDBCol md='6' className='p-5' style={{ backgroundColor: "#E5BA73" }}>
 
                                                 <TextField
                                                     //required
@@ -991,7 +991,7 @@ function FirstData() {
                                                         />
                                                     </MDBCol>
                                                     <MDBCol md='3'>
-                                                        
+
                                                         {/* <DatePicker
                                                             selected={date}
                                                             onChange={handleChange}
@@ -1000,29 +1000,30 @@ function FirstData() {
                                                             required
                                                             label="Month-Year"
                                                         /> */}
-                                                         <TextField
-                                                required
-                                                id="year"
-                                                name="year"
-                                                label="Year"
-                                                fullWidth
-                                                variant="standard"
-                                                color='secondary'
-                                                type="number"
-                                                onChange={handleChange}
-                                            />
-                                                </MDBCol>
-                                                <MDBCol md='3'>
-                                                <TextField
-                                                id="month"
-                                                name="month"
-                                                label="Month"
-                                                fullWidth
-                                                variant="standard"
-                                                color='secondary'
-                                                type="number"
-                                                onChange={handleChange}
-                                            /> 
+                                                        <TextField
+                                                            required
+                                                            id="year"
+                                                            name="year"
+                                                            label="Year"
+                                                            fullWidth
+                                                            variant="standard"
+                                                            color='secondary'
+                                                            type="number"
+                                                            pattern="\d{4}"
+                                                            onChange={handleChange}
+                                                        />
+                                                    </MDBCol>
+                                                    <MDBCol md='3'>
+                                                        <TextField
+                                                            id="month"
+                                                            name="month"
+                                                            label="Month"
+                                                            fullWidth
+                                                            variant="standard"
+                                                            color='secondary'
+                                                            type="number"
+                                                            onChange={handleChange}
+                                                        />
                                                     </MDBCol>
 
                                                 </MDBRow>
@@ -1040,7 +1041,7 @@ function FirstData() {
                                                                 onChange={handleChangeProceedings}
                                                                 label="In Proceedings?"
                                                                 color='secondary'
-                                                                //required
+                                                            //required
                                                             >
                                                                 <MenuItem value="">
                                                                     <em>None</em>
@@ -1062,7 +1063,7 @@ function FirstData() {
                                                                 onChange={handleChangePublished}
                                                                 label="Abstract Published?"
                                                                 color='secondary'
-                                                                //required
+                                                            //required
                                                             >
                                                                 <MenuItem value="">
                                                                     <em>None</em>
@@ -1082,7 +1083,7 @@ function FirstData() {
                                                                 onChange={handleChangeAffiliated}
                                                                 label="Affiliated?"
                                                                 color='secondary'
-                                                                //required
+                                                            //required
                                                             >
                                                                 <MenuItem value="">
                                                                     <em>None</em>
@@ -1107,7 +1108,7 @@ function FirstData() {
                                                                 onChange={handleChangeAuthorNo}
                                                                 label="Author Order"
                                                                 color='secondary'
-                                                               // required
+                                                            // required
                                                             >
                                                                 <MenuItem value="">
                                                                     <em>None</em>
@@ -1138,7 +1139,7 @@ function FirstData() {
                                                     </MDBCol>
                                                     <MDBCol md='4'>
                                                         <TextField
-                                                           // required
+                                                            // required
                                                             id="endingPage"
                                                             name="endingPage"
                                                             label="Ending Page"

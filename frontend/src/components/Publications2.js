@@ -50,7 +50,7 @@ function Publications2() {
     let [endDate, setEndDate] = useState("")
 
     const [show, setShow] = useState(false)
-    let jobs = ["ALL","C","J","B","BC"]; // let [jobs, setJobs] = useState(["ALL","C","J","B","BC"])
+    let jobs = ["ALL", "C", "J", "B", "BC"]; // let [jobs, setJobs] = useState(["ALL","C","J","B","BC"])
     let authors = ["ALL", "Single", "First", "Second", "Third", "Fourth", "Fifth", "Others"]; //let [authors, setAuthors] = useState(["ALL", "Single", "First", "Second", "Third", "Fourth", "Fifth", "Others"])
     // let [verdicts, setVerdict] = useState(['All',"ACCEPTED", "WRONG ANSWER","TIME LIMIT EXCEEDED","RUNTIME ERROR","PENDING","OTHER","COMPILATION ERROR"]);
     // let [languages, setLanguage] = useState(['All',"CPP", "C#", "JAVA", "JAVASCRIPT", "PYTHON"]);
@@ -65,7 +65,7 @@ function Publications2() {
     let [Required, setRequired] = useState(false)
     const handleClose = () => setShow(false);
     const handleShow = () => { setShow(true) };
-    const handleSearch = () => { if (startDate && endDate) { setYearFilterValue("") ; setGetApi(getApi + 1); setShow(false)} };
+    const handleSearch = () => { if (startDate && endDate) { setYearFilterValue(""); setGetApi(getApi + 1); setShow(false) } };
 
     // const CalendarContainer = ({ children }) => {
     //     const el = document.getElementById("calendar-portal");
@@ -126,7 +126,7 @@ function Publications2() {
         if (!tokens) {
             navigate("/login")
         }
-        service.get("api/data?title=" + publicationFilterValue + "&branch=" + branchFilterValue + "&username=" + publishedByFilterValue + "&cjb=" + (c_j_bFilterValue==="ALL"?"":c_j_bFilterValue) + "&year=" + yearFilterValue + "&nationality=" + nationalityFilterValue + "&scl=" + scopusFilterValue + "&author_no=" + (authorsFilterValue === "ALL" ? "" : authorsFilterValue) + "&page=" + pageNo + "&limit=" + perPage + "&startDate=" + startDate + "&endDate=" + endDate).then((json) => {
+        service.get("api/data?title=" + publicationFilterValue + "&branch=" + branchFilterValue + "&username=" + publishedByFilterValue + "&cjb=" + (c_j_bFilterValue === "ALL" ? "" : c_j_bFilterValue) + "&year=" + yearFilterValue + "&nationality=" + nationalityFilterValue + "&scl=" + scopusFilterValue + "&author_no=" + (authorsFilterValue === "ALL" ? "" : authorsFilterValue) + "&page=" + pageNo + "&limit=" + perPage + "&startDate=" + startDate + "&endDate=" + endDate).then((json) => {
             console.log("JSON", json)
             setData(json.docs);
             setPageData(json.limit === 0 ? 1 : json.pages)
@@ -155,7 +155,7 @@ function Publications2() {
                 <Modal.Header closeButton>
                     <Modal.Title>Range Date Search</Modal.Title>
                 </Modal.Header>
-                <Modal.Body style={{backgroundColor:"#FDFDBD"}}>
+                <Modal.Body style={{ backgroundColor: "#FDFDBD" }}>
                     {/* <HelpModal/> */}
                     {/* <form id="date-entry" ref={formRef} onSubmit={handleSearch}> */}
                     {Required ? <b style={{ "color": "red" }}>Both the fields are required to search*</b> : ""}
@@ -189,7 +189,7 @@ function Publications2() {
             </Modal>
             <HomeNavbar />
             <div className="p-3" style={{
-                height: 0<data.length && data.length<10?"90vh":"100%",
+                height: 0 < data.length && data.length < 10 ? "90vh" : "100%",
                 width: "99vw",
                 "backgroundColor": "#FDFDBD"
             }}>
@@ -364,7 +364,7 @@ function Publications2() {
                             //minWidth: 140
                         },
                         {
-                            Header:"Year", //Header: () => (<div>Year<br /><input type="text" id="year" name="year" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} value={yearFilterValue} onChange={(e) => { setYearFilterValue(e.target.value); }} /></div>),
+                            Header: "Year", //Header: () => (<div>Year<br /><input type="text" id="year" name="year" onKeyPress={(e) => { if (e.key === "Enter") { setGetApi(getApi + 1); setPageNo(1) } }} value={yearFilterValue} onChange={(e) => { setYearFilterValue(e.target.value); }} /></div>),
                             accessor: "year",
                             Cell: e => <a>{fun(e.original.year)}</a>,
                             getProps: (state, rowInfo, column) => {
@@ -377,20 +377,20 @@ function Publications2() {
                             },
                             //minWidth: 420
                         },
-                          {  
+                        {
                             Header: "Month",
                             accessor: "month",
                             //Cell: e =>{e.original.month},
                             getProps: (state, rowInfo, column) => {
-                              return {
-                                style: {
-                                  color: (rowInfo?.original?.my) ? color : textColor,
-                                  background: rowInfo?.original?.my ? background : "#FAEAB1",
-                                },
-                              };
+                                return {
+                                    style: {
+                                        color: (rowInfo?.original?.my) ? color : textColor,
+                                        background: rowInfo?.original?.my ? background : "#FAEAB1",
+                                    },
+                                };
                             },
-                        // minWidth: 210
-                          },
+                            // minWidth: 210
+                        },
                         {
                             Header: "ISSN/ISBN/DOI",
                             accessor: "doi",
